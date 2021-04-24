@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+
+}
+
+/* *,
+*:before,
+*:after {
+  box-sizing: inherit;
+} */
+
+/* .App {
+  text-align: center;
+  overflow: hidden;
+}
+ */
+
+
+
+.window-size.hidden {
+  opacity: 0;
+  transition: 1s;
+}
+
+canvas {
+  border: 2px solid gold;
+}
