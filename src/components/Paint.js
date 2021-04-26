@@ -5,6 +5,7 @@ import ColorPicker from "./ColorPicker";
 import Canvas from "./Canvas";
 import RefreshButton from "./RefreshButton";
 import useWindowSize from "./WindowSize";
+import rainSounds from "../assets/rainSound.mp3" 
 
 export default function Paint() {
   const [colors, setColors] = useState([]);
@@ -33,33 +34,41 @@ export default function Paint() {
 
   useEffect(getColors, []);
 
+  const playRain = () => {
+    const startRainSounds = new Audio(rainSounds);
+    startRainSounds.currentTime = 0;
+    startRainSounds.play();
+    startRainSounds.loop = true
+  };
+
   return (
-    <div>
+    <div className="paint">
       <header
         ref={headerRef}
-        style={{ borderTop: `10px solid ${activeColor}` }}
       >
-        <div>
-          <Name />
-        </div>
-        <div>
-          <ColorPicker
+        <div className="select-colors">
+          <ColorPicker 
             colors={colors}
             activeColor={activeColor}
             setActiveColor={setActiveColor}
           />
-          <RefreshButton cb={getColors} />
+          <RefreshButton 
+          cb={getColors} />
+          <button onClick={playRain}>Rain & birds</button>
         </div>
+        
       </header>
+      <section className="canvas-container">
       {activeColor && (
         <Canvas
           color={activeColor}
           height={window.innerHeight - headerRef.current.offsetHeight}
         />
       )}
-      <div className={`window-size ${visible ? "" : "hidden"}`}>
+      </section>
+{/*       <div className={`window-size ${visible ? "" : "hidden"}`}>
         {windowWidth} x {windowHeight}
-      </div>
+      </div> */}
     </div>
   );
 }

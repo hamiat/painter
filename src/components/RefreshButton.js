@@ -5,5 +5,5 @@ export default React.memo(({ cb }) => {
     return <button 
     className="new-colors-btn"
     onClick={cb}
-    >Refresh</button>
+    >New colors</button>
 })
