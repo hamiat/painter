@@ -6,26 +6,42 @@ html {
 
 }
 
-<<<<<<< HEAD
+
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50px auto;
+  grid-gap: 20px;
 }
 
 header {
   grid-column: 1 /span 3;
   grid-row: 1;
+ 
 
 }
 
 .name-container {
   display: block;
   text-align: center;
+  
 }
-=======
 
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
+.name-container button {
+  margin-left: 10px;
+  margin-top: 5px;
+  background-image: linear-gradient(to right, #ee9ca7 0%, #ffdde1  51%, #ee9ca7  100%);
+  padding: 5px 15px;
+  font-family: monospace;
+  font-weight: 800;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(75, 68, 68);            
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+}
+
 
 input {
   border: 1px solid #d3d3d3;
@@ -44,15 +60,25 @@ main {
 
 
 /* sounds buttons css */
-.sound-btns {
+.sounds {
   grid-column: 1 /span 1;
   grid-row: 1;
-  display: block;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* margin: auto; */
+  justify-content: center;
+  align-items: center;
 }
 
-.sound-btns button {background-image: linear-gradient(to right, #83a4d4 0%, #b6fbff  51%, #83a4d4  100%)}
-.sound-btns button {
+.sound-btn-rain {background-image: linear-gradient(to right, #b3ffab57 0%, #12fff77c  51%, #b3ffab80  100%)}
+.sound-btn-spring {background-image: linear-gradient(to right, #83a4d4 0%, #b6fbff  51%, #83a4d4  100%)}
+.sound-btn-zen {background-image: linear-gradient(to right, #ddd6f3 0%, #faaca8  51%, #ddd6f3  100%)}
+.sound-btn-cafe {background-image: linear-gradient(to right, #FFAFBD 0%, #ffc3a0  51%, #FFAFBD  100%)}
+
+
+ 
+
+.sound-btn-rain, .sound-btn-spring, .sound-btn-zen, .sound-btn-cafe {
    margin: 10px;
    padding: 5px 15px;
    text-align: center;
@@ -60,19 +86,40 @@ main {
    font-weight: 800;
    transition: 0.5s;
    background-size: 200% auto;
-   color: white;            
+   color:  rgb(75, 68, 68);            
    box-shadow: 0 0 20px #eee;
    border-radius: 10px;
    display: block;
-   border: none;
+   border: 1px solid gainsboro;
    cursor: pointer;
  }
 
- .sound-btns button:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: gold;
-   text-decoration: none;
-   border: 1px solid gold;
+ 
+  
+
+ 
+ 
+
+
+ 
+
+ .mute-btn {
+   background: none;
+   border: none;
+   margin-top: 95px;
+   cursor: pointer;
+   
+   
+   
+ }
+
+ .mute-btn:hover {
+  transition: 0.5s;
+  transform: scale(1.2);
+ }
+
+ .mute-btn img {
+  width: 55px;
  }
 
 
@@ -129,7 +176,8 @@ canvas {
 }
 
 /* refresh colors button css*/
-.new-colors-btn {background-image: linear-gradient(to right,  #83a4d4 0%, #b6fbff  51%, #83a4d4  100%)}
+.new-colors-btn {background-image:  linear-gradient(to right, #74ebd5, #acb6e5);}
+ 
 .new-colors-btn {
    margin: auto;
    padding: 15px 45px;
@@ -137,7 +185,7 @@ canvas {
    text-transform: uppercase;
    transition: 0.5s;
    background-size: 200% auto;
-   color: white;            
+   color:  rgb(75, 68, 68);            
    box-shadow: 0 0 20px #eee;
    border-radius: 10px;
    display: block;
@@ -149,46 +197,15 @@ canvas {
    font-size: 20px;
  }
 
- .new-colors-btn:hover {
+ button:hover {
    background-position: right center; /* change the direction of the change here */
-   color: gold;
+   color: white;
    text-decoration: none;
-   border: 1px solid gold;
+   border: 1px solid azure;
  }
 
+ 
 
-<<<<<<< HEAD
-=======
-.canvas-container {
-  grid-column: 1 /span 2;
-  grid-row: 2;
-  margin: 0 5em;
-  text-align: center;
-}
+ 
+ 
 
-.image-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-
-/* .App {
-  text-align: center;
-  overflow: hidden;
-}
- */
-
-
-
-/* .window-size.hidden {
-  opacity: 0;
-  transition: 1s;
-} */
-
-canvas {
-  border: 2px solid gold;
-  
-}
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308

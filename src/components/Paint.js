@@ -3,13 +3,11 @@ import randomcolor from "randomcolor";
 import ColorPicker from "./ColorPicker";
 import Canvas from "./Canvas";
 import RefreshButton from "./RefreshButton";
-<<<<<<< HEAD
 import rainSounds from "../assets/rainSound.mp3";
-=======
-import useWindowSize from "./WindowSize";
-import rainSounds from "../assets/rainSound.mp3" 
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
-import birdSounds from "../assets/spring-birds.wav"
+import birdSounds from "../assets/spring-birds.wav";
+import zenSound from "..//assets/zenGong-bScale.wav";
+import cafeSound from "..//assets/cafe.wav";
+import mutePic from "../assets/muteIcon.png";
 
 export default function Paint() {
   const [colors, setColors] = useState([]);
@@ -29,32 +27,55 @@ export default function Paint() {
 
   useEffect(getColors, []);
 
+  const startRainSounds = new Audio(rainSounds);
+  const startBirdSounds = new Audio(birdSounds);
+  const startZenSounds = new Audio(zenSound);
+  const startCafeSounds = new Audio(cafeSound);
+
   const playRain = () => {
-    const startRainSounds = new Audio(rainSounds);
-    startRainSounds.currentTime = 0;
     startRainSounds.play();
     startRainSounds.loop = true;
   };
 
   const playBirds = () => {
-    const startBirdSounds = new Audio(birdSounds);
-    startBirdSounds.currentTime = 0;
     startBirdSounds.play();
-    startBirdSounds.loop = true
+    startBirdSounds.loop = true;
   };
 
-  const playBirds = () => {
-    const startBirdSounds = new Audio(birdSounds);
-    startBirdSounds.currentTime = 0;
-    startBirdSounds.play();
-    startBirdSounds.loop = true
+  const playZenSound = () => {
+    startZenSounds.play();
+    startZenSounds.loop = true;
+  };
+  const playCafeSounds = () => {
+    startCafeSounds.play();
+    startCafeSounds.loop = true;
+  };
+
+  const pauseSounds = () => {
+    startBirdSounds.pause();
+    startRainSounds.pause();
+    startCafeSounds.pause();
+    startZenSounds.pause();
   };
 
   return (
     <section className="painter-container">
-      <div className="sound-btns">
-        <button onClick={playRain}>Rain & birds</button>
-        <button onClick={playBirds}>Spring birds</button>
+      <div className="sounds">
+        <button className="sound-btn-rain" onClick={playRain}>
+          Rain & birds
+        </button>
+        <button className="sound-btn-spring" onClick={playBirds}>
+          Spring birds
+        </button>
+        <button className="sound-btn-zen" onClick={playZenSound}>
+          Zen Gong
+        </button>
+        <button className="sound-btn-cafe" onClick={playCafeSounds}>
+          Busy Cafe
+        </button>
+        <button onClick={pauseSounds} className="mute-btn">
+          <img src={mutePic} alt="mute button" />
+        </button>
       </div>
       <div className="canvas-container">
         {activeColor && (
@@ -62,31 +83,18 @@ export default function Paint() {
             color={activeColor}
             height={window.innerHeight - headerRef.current.offsetHeight}
           />
-<<<<<<< HEAD
         )}
       </div>
 
       <div className="select-colors" ref={headerRef}>
+        <div>
         <ColorPicker
           colors={colors}
           activeColor={activeColor}
           setActiveColor={setActiveColor}
-=======
-          <RefreshButton 
-          cb={getColors} />
-          <button onClick={playRain}>Rain & birds</button>
-          <button onClick={playBirds}>Spring birds</button>
-        </div>
-        
-      </header>
-      <section className="canvas-container">
-      {activeColor && (
-        <Canvas
-          color={activeColor}
-          height={window.innerHeight - headerRef.current.offsetHeight}
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
         />
         <RefreshButton cb={getColors} />
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import React, { useState, useEffect} from 'react'
 
 export default function ColorPicker({ colors = [], activeColor, setActiveColor }) {
     if(!colors.length) return null

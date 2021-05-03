@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-<<<<<<< HEAD
-=======
-import useWindowSize from './WindowSize'
-
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
 
 
 export default function Canvas(props) {
   const [width, setWidth] = useState(window.innerWidth/2)
   const [height, setHeight] = useState(window.innerHeight)
   const [drawing, setDrawing] = useState(false)
-  const [name, setName] = useState("")
+  /* const [name, setName] = useState("") */
 
 
   const canvasRef = useRef()
@@ -52,7 +47,7 @@ export default function Canvas(props) {
     setDrawing(false)
   }
 
-  function saveImage(){
+/*   function saveImage(){
     let dataURL = canvasRef.current.toDataURL()
     
 
@@ -75,28 +70,11 @@ export default function Canvas(props) {
     const imagesArray = JSON.parse(localStorage.getItem("Paintings"))
     console.log(imagesArray)
 
-  }
+  } */
 
 
   return (
     <React.Fragment>
-<<<<<<< HEAD
-=======
-      <div className="image-title">
-    <label>
-            <input
-            value={name}
-            onChange={e => setName(e.target.value)}
-            onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
-            placeholder="Untitled"
-            />
-      </label>
-      {name}
-      <button onClick={saveImage}>Save</button>
-     
-      </div>
-
->>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
       <canvas className="canvas"
         ref={canvasRef}
         width={props.width || width}
