@@ -6,9 +6,7 @@ html {
 
 }
 
-.App {
-  text-align: center;
-}
+
 
 .paint {
   display: grid;
@@ -91,7 +89,11 @@ header {
   text-align: center;
 }
 
-
+.image-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 

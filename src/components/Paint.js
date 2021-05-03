@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Name from "./Name";
 import randomcolor from "randomcolor";
 import ColorPicker from "./ColorPicker";
 import Canvas from "./Canvas";
 import RefreshButton from "./RefreshButton";
 import useWindowSize from "./WindowSize";
 import rainSounds from "../assets/rainSound.mp3" 
+import birdSounds from "../assets/spring-birds.wav"
 
 export default function Paint() {
   const [colors, setColors] = useState([]);
@@ -41,6 +41,13 @@ export default function Paint() {
     startRainSounds.loop = true
   };
 
+  const playBirds = () => {
+    const startBirdSounds = new Audio(birdSounds);
+    startBirdSounds.currentTime = 0;
+    startBirdSounds.play();
+    startBirdSounds.loop = true
+  };
+
   return (
     <div className="paint">
       <header
@@ -55,6 +62,7 @@ export default function Paint() {
           <RefreshButton 
           cb={getColors} />
           <button onClick={playRain}>Rain & birds</button>
+          <button onClick={playBirds}>Spring birds</button>
         </div>
         
       </header>

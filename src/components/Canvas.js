@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react'
 import useWindowSize from './WindowSize'
-import Name from './Name'
+
 
 
 export default function Canvas(props) {
   const [width, setWidth] = useState(window.innerWidth/2)
   const [height, setHeight] = useState(window.innerHeight)
   const [drawing, setDrawing] = useState(false)
+  const [name, setName] = useState("")
 
 
   const canvasRef = useRef()
   const ctx = useRef()
-
+ 
   useEffect(() => {
     ctx.current = canvasRef.current.getContext('2d')
   }, [])
@@ -55,10 +56,48 @@ export default function Canvas(props) {
     setDrawing(false)
   }
 
+  function saveImage(){
+    let dataURL = canvasRef.current.toDataURL()
+    
+
+    let paintingsArray;
+    let paintings = { "painting": dataURL, "name": name  }
+
+    if (localStorage.getItem("Paintings")) {
+      paintingsArray = JSON.parse(localStorage.getItem("Paintings"))
+      } else {
+        paintingsArray = []
+      }
+      paintingsArray.push(paintings)
+      localStorage.setItem("Paintings", JSON.stringify(paintingsArray))
+
+      console.log(paintings)
+  }
+
+  
+  function renderImage(){
+    const imagesArray = JSON.parse(localStorage.getItem("Paintings"))
+    console.log(imagesArray)
+
+  }
+
 
   return (
     <React.Fragment>
-    {/*   <Name /> */}
+      <div className="image-title">
+    <label>
+            <input
+            value={name}
+            onChange={e => setName(e.target.value)}
+            onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
+            placeholder="Untitled"
+            />
+      </label>
+      {name}
+      <button onClick={saveImage}>Save</button>
+     
+      </div>
+
       <canvas className="canvas"
         ref={canvasRef}
         width={props.width || width}
@@ -67,6 +106,7 @@ export default function Canvas(props) {
         onMouseUp={stopDrawing}
         onMouseMove={handleMouseMove}
       />
+      
     </React.Fragment>
   )
 
