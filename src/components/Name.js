@@ -3,7 +3,7 @@ import React, { useState} from 'react'
 export default React.memo(() => {
     const [name, setName] = useState("")
 
-    const savePainting = () => {
+   /*  const savePainting = () => {
         let paintingsArray;
         let paintings = { paintingName: name }
 
@@ -14,11 +14,11 @@ export default React.memo(() => {
         }
         paintingsArray.push(paintings)
         localStorage.setItem("Paintings", JSON.stringify(paintingsArray))
-    }
+    } */
         
     
     return(
-        <div>
+        <div className="name-container">
         <label className="user-name">
             <input
             value={name}
@@ -27,9 +27,11 @@ export default React.memo(() => {
             placeholder="Untitled"
             />
         </label>
-        <button onClick={savePainting}>Save</button>
         <br></br>
-        {name}
+        <br></br>
+        <p className="painting-name">{name}</p>
+        
+   {/*      <button onClick={savePainting}>Save</button> */}
         </div>
         
     )

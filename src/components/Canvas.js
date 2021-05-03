@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import useWindowSize from './WindowSize'
-import Name from './Name'
 
 
 export default function Canvas(props) {
@@ -15,13 +13,6 @@ export default function Canvas(props) {
   useEffect(() => {
     ctx.current = canvasRef.current.getContext('2d')
   }, [])
-
-
-
-  const [windowWidth, windowHeight] = useWindowSize(() => {
-    setWidth(window.innerHeight)
-    setHeight(window.innerHeight)
-  })
 
   function handleMouseMove(e) {
     const coords = [
@@ -58,7 +49,6 @@ export default function Canvas(props) {
 
   return (
     <React.Fragment>
-    {/*   <Name /> */}
       <canvas className="canvas"
         ref={canvasRef}
         width={props.width || width}
