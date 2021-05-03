@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Name from "./Name";
 import randomcolor from "randomcolor";
 import ColorPicker from "./ColorPicker";
 import Canvas from "./Canvas";
 import RefreshButton from "./RefreshButton";
+<<<<<<< HEAD
 import rainSounds from "../assets/rainSound.mp3";
+=======
+import useWindowSize from "./WindowSize";
+import rainSounds from "../assets/rainSound.mp3" 
+>>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
 import birdSounds from "../assets/spring-birds.wav"
 
 export default function Paint() {
@@ -39,6 +43,13 @@ export default function Paint() {
     startBirdSounds.loop = true
   };
 
+  const playBirds = () => {
+    const startBirdSounds = new Audio(birdSounds);
+    startBirdSounds.currentTime = 0;
+    startBirdSounds.play();
+    startBirdSounds.loop = true
+  };
+
   return (
     <section className="painter-container">
       <div className="sound-btns">
@@ -51,6 +62,7 @@ export default function Paint() {
             color={activeColor}
             height={window.innerHeight - headerRef.current.offsetHeight}
           />
+<<<<<<< HEAD
         )}
       </div>
 
@@ -59,6 +71,20 @@ export default function Paint() {
           colors={colors}
           activeColor={activeColor}
           setActiveColor={setActiveColor}
+=======
+          <RefreshButton 
+          cb={getColors} />
+          <button onClick={playRain}>Rain & birds</button>
+          <button onClick={playBirds}>Spring birds</button>
+        </div>
+        
+      </header>
+      <section className="canvas-container">
+      {activeColor && (
+        <Canvas
+          color={activeColor}
+          height={window.innerHeight - headerRef.current.offsetHeight}
+>>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
         />
         <RefreshButton cb={getColors} />
       </div>

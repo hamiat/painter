@@ -6,6 +6,7 @@ html {
 
 }
 
+<<<<<<< HEAD
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -22,6 +23,9 @@ header {
   display: block;
   text-align: center;
 }
+=======
+
+>>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
 
 input {
   border: 1px solid #d3d3d3;
@@ -153,3 +157,38 @@ canvas {
  }
 
 
+<<<<<<< HEAD
+=======
+.canvas-container {
+  grid-column: 1 /span 2;
+  grid-row: 2;
+  margin: 0 5em;
+  text-align: center;
+}
+
+.image-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/* .App {
+  text-align: center;
+  overflow: hidden;
+}
+ */
+
+
+
+/* .window-size.hidden {
+  opacity: 0;
+  transition: 1s;
+} */
+
+canvas {
+  border: 2px solid gold;
+  
+}
+>>>>>>> aaeb2b380c7683e150ddda12447926f11e188308
