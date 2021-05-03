@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 
 
 export default function Canvas(props) {
-  const [width, setWidth] = useState(window.innerWidth/2)
-  const [height, setHeight] = useState(window.innerHeight)
+  const [width] = useState(window.innerWidth/2)
+  const [height] = useState(window.innerHeight)
   const [drawing, setDrawing] = useState(false)
   /* const [name, setName] = useState("") */
 

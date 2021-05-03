@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import randomcolor from "randomcolor";
 import ColorPicker from "./ColorPicker";
 import Canvas from "./Canvas";
@@ -15,7 +15,7 @@ export default function Paint() {
   const headerRef = useRef({ offsetHeight: 0 });
 
   //optimizing so that getColors is not being recreated on each render, using useCallback hook
-  const getColors = useCallback(() => {
+  const getColors = (() => {
     const baseColor = randomcolor().slice(1);
     fetch(`https://www.thecolorapi.com/scheme?hex=${baseColor}&mode=monochrome`)
       .then((res) => res.json())
@@ -23,9 +23,11 @@ export default function Paint() {
         setColors(res.colors.map((color) => color.hex.value));
         setActiveColor(res.colors[0].hex.value);
       });
-  }, []);
+  });
 
-  useEffect(getColors, []);
+  useEffect(() => {
+    getColors()
+  },[]);
 
   const startRainSounds = new Audio(rainSounds);
   const startBirdSounds = new Audio(birdSounds);
