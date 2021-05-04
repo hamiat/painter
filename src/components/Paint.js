@@ -14,7 +14,7 @@ export default function Paint() {
   const [activeColor, setActiveColor] = useState(null);
   const headerRef = useRef({ offsetHeight: 0 });
 
-  //optimizing so that getColors is not being recreated on each render, using useCallback hook
+  
   const getColors = (() => {
     const baseColor = randomcolor().slice(1);
     fetch(`https://www.thecolorapi.com/scheme?hex=${baseColor}&mode=monochrome`)
