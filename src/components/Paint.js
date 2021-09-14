@@ -13,7 +13,7 @@ export default function Paint() {
   const [colors, setColors] = useState([]);
   const [activeColor, setActiveColor] = useState(null);
   const headerRef = useRef({ offsetHeight: 0 });
-  const [eraser, setEraser] = useState("#FFFFF")
+ 
   
   const getColors = (() => {
     const baseColor = randomcolor().slice(1);
