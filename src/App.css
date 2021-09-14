@@ -131,14 +131,15 @@ canvas {
 .select-colors {
   grid-column: 3 / span 1;
   grid-row: 1;
-  display: flex;
-  flex-direction: column;
   margin: auto;
 }
 
 .color-picker {
   border: none;
   display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  align-content: center;
   margin-bottom: 20px;
 }
 
@@ -176,7 +177,7 @@ canvas {
 
 .new-colors-btn {
   margin: auto;
-  padding: 15px 45px;
+  padding: 5px 10px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -187,10 +188,10 @@ canvas {
   display: block;
   border: none;
   cursor: pointer;
-  width: 70%;
   font-family: monospace;
   font-weight: 600;
   font-size: 20px;
+  width: 90%
 }
 
 button:hover {
@@ -222,4 +223,16 @@ button:hover {
 .new-colors-btn:hover {
   color: white;
   border: none;
+}
+
+
+@media screen and (max-width: 810px) {
+  .color-picker {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 20px;
+  }
 }

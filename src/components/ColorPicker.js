@@ -1,5 +1,5 @@
 
-export default function ColorPicker({ colors = [], activeColor, setActiveColor }) {
+export default function ColorPicker({ colors = [], activeColor, setActiveColor, eraser }) {
     if(!colors.length) return null
 
     return(
@@ -16,6 +16,7 @@ export default function ColorPicker({ colors = [], activeColor, setActiveColor }
           <span style={{ background: color }} />
         </label>
       ))}
+      
     </fieldset>
     )
 }
